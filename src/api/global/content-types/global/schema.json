@@ -1,35 +1,27 @@
 {
   "kind": "singleType",
-  "collectionName": "globals",
+  "collectionName": "global",
   "info": {
     "singularName": "global",
     "pluralName": "globals",
-    "displayName": "Global",
-    "description": "Define global settings"
+    "displayName": "Global"
   },
   "options": {
     "draftAndPublish": false
   },
-  "pluginOptions": {},
   "attributes": {
-    "siteName": {
-      "type": "string",
-      "required": true
+    "siteName": { "type": "string" },
+    "siteDescription": { "type": "text" },
+    "defaultSeo": { "type": "component", "component": "shared.seo" },
+    "mainMenu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
     },
-    "favicon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
-    },
-    "siteDescription": {
-      "type": "text",
-      "required": true
-    },
-    "defaultSeo": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.seo"
+    "footerMenu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
     }
   }
 }

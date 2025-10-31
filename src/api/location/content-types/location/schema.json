@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "zipCode": { "type": "string" },
+    "country": { "type": "string" },
+    "description": { "type": "richtext" },
+    "image": { "type": "media", "multiple": false },
+    "tournaments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tournament.tournament",
+      "mappedBy": "location"
+    }
+  }
+}
