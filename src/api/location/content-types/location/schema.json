@@ -17,7 +17,7 @@
     "zipCode": { "type": "string" },
     "country": { "type": "string" },
     "description": { "type": "richtext" },
-    "image": { "type": "media", "multiple": false },
+    "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "tournaments": {
       "type": "relation",
       "relation": "oneToMany",

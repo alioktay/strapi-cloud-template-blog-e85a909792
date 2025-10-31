@@ -15,7 +15,7 @@
     "phone": { "type": "string" },
     "website": { "type": "string" },
     "description": { "type": "richtext" },
-    "logo": { "type": "media", "multiple": false },
+    "logo": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
     "tournaments": {
       "type": "relation",
       "relation": "oneToMany",
