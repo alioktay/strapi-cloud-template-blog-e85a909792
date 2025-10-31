@@ -637,12 +637,13 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
 export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   collectionName: 'menus';
   info: {
+    description: 'Navigation menus for the site';
     displayName: 'Menu';
     pluralName: 'menus';
     singularName: 'menu';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -654,7 +655,7 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'name'>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -717,7 +718,7 @@ export interface ApiOrganizerOrganizer extends Struct.CollectionTypeSchema {
       'api::organizer.organizer'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media;
+    logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;

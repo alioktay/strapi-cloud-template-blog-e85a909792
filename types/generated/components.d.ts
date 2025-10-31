@@ -13,13 +13,36 @@ export interface CommonTag extends Struct.ComponentSchema {
 export interface NavigationMenuItem extends Struct.ComponentSchema {
   collectionName: 'components_navigation_menu_items';
   info: {
+    description: 'Menu item that can link to either an external URL or an internal page';
     displayName: 'Menu Item';
+    icon: 'list';
   };
   attributes: {
-    children: Schema.Attribute.Component<'navigation.menu-item', true>;
+    children: Schema.Attribute.Component<'navigation.menu-item-child', true>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    type: Schema.Attribute.Enumeration<['external', 'internal']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'internal'>;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface NavigationMenuItemChild extends Struct.ComponentSchema {
+  collectionName: 'components_navigation_menu_item_children';
+  info: {
+    description: 'Child menu item that can link to either an external URL or an internal page (without further nesting)';
+    displayName: 'Menu Item Child';
+    icon: 'list';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    openInNewTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    page: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    type: Schema.Attribute.Enumeration<['external', 'internal']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'internal'>;
     url: Schema.Attribute.String;
   };
 }
@@ -89,6 +112,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'common.tag': CommonTag;
       'navigation.menu-item': NavigationMenuItem;
+      'navigation.menu-item-child': NavigationMenuItemChild;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

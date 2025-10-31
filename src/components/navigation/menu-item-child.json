@@ -1,9 +1,9 @@
 {
-  "collectionName": "components_navigation_menu_items",
+  "collectionName": "components_navigation_menu_item_children",
   "info": {
-    "displayName": "Menu Item",
+    "displayName": "Menu Item Child",
     "icon": "list",
-    "description": "Menu item that can link to either an external URL or an internal page"
+    "description": "Child menu item that can link to either an external URL or an internal page (without further nesting)"
   },
   "attributes": {
     "label": { 
@@ -31,11 +31,6 @@
       "required": true,
       "default": "internal",
       "description": "Type of link: external URL or internal page"
-    },
-    "children": {
-      "type": "component",
-      "repeatable": true,
-      "component": "navigation.menu-item-child"
     }
   }
 }
