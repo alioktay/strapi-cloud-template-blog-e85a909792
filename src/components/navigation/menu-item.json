@@ -1,15 +1,29 @@
 {
   "collectionName": "components_navigation_menu_items",
   "info": {
-    "displayName": "Menu Item"
+    "displayName": "Menu Item",
+    "icon": "list",
+    "description": "Menu item can link to either an external URL or an internal page"
   },
   "attributes": {
     "label": { "type": "string", "required": true },
-    "url": { "type": "string" },
+    "externalUrl": { 
+      "type": "string",
+      "regex": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$",
+      "description": "External URL (e.g., https://example.com)"
+    },
     "page": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::page.page"
+      "target": "api::page.page",
+      "description": "Internal page reference"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["external", "internal"],
+      "required": true,
+      "default": "internal",
+      "description": "Type of link: external URL or internal page"
     },
     "openInNewTab": { "type": "boolean", "default": false },
     "children": {
