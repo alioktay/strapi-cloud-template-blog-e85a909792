@@ -6,31 +6,30 @@
     "description": "Child menu item that can link to either an external URL or an internal page (without further nesting)"
   },
   "attributes": {
-    "label": { 
-      "type": "string", 
-      "required": true 
-    },
-    "url": { 
+    "label": {
       "type": "string",
-      "regex": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$",
-      "description": "External URL (e.g., https://example.com) or internal path (e.g., /about)"
+      "required": true
     },
-    "openInNewTab": { 
-      "type": "boolean", 
-      "default": false 
+    "url": {
+      "type": "string"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
     },
     "page": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::page.page",
-      "description": "Internal page reference"
+      "target": "api::page.page"
     },
     "type": {
       "type": "enumeration",
-      "enum": ["external", "internal"],
       "required": true,
       "default": "internal",
-      "description": "Type of link: external URL or internal page"
+      "enum": [
+        "external",
+        "internal"
+      ]
     }
   }
 }

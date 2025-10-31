@@ -25,7 +25,7 @@ export interface NavigationMenuItem extends Struct.ComponentSchema {
     type: Schema.Attribute.Enumeration<['external', 'internal']> &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'internal'>;
-    url: Schema.Attribute.String;
+    url: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#'>;
   };
 }
 

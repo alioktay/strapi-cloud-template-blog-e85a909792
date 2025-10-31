@@ -6,36 +6,36 @@
     "description": "Menu item that can link to either an external URL or an internal page"
   },
   "attributes": {
-    "label": { 
-      "type": "string", 
-      "required": true 
-    },
-    "url": { 
+    "label": {
       "type": "string",
-      "regex": "^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$",
-      "description": "External URL (e.g., https://example.com) or internal path (e.g., /about)"
+      "required": true
     },
-    "openInNewTab": { 
-      "type": "boolean", 
-      "default": false 
+    "url": {
+      "type": "string",
+      "default": "#"
     },
     "page": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::page.page",
-      "description": "Internal page reference"
+      "target": "api::page.page"
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
     },
     "type": {
       "type": "enumeration",
-      "enum": ["external", "internal"],
       "required": true,
       "default": "internal",
-      "description": "Type of link: external URL or internal page"
+      "enum": [
+        "external",
+        "internal"
+      ]
     },
     "children": {
       "type": "component",
-      "repeatable": true,
-      "component": "navigation.menu-item-child"
+      "component": "navigation.menu-item-child",
+      "repeatable": true
     }
   }
 }
