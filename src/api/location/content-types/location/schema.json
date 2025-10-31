@@ -7,7 +7,7 @@
     "displayName": "Location"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": { "type": "string", "required": true },

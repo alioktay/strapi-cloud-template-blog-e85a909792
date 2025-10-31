@@ -9,14 +9,31 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
-    "title": { "type": "string", "required": true },
-    "slug": { "type": "uid", "targetField": "title" },
-    "startDate": { "type": "date" },
-    "endDate": { "type": "date" },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
     "level": {
       "type": "enumeration",
-      "enum": ["regional", "state", "national", "youth", "veteran"]
+      "enum": [
+        "regional",
+        "state",
+        "national",
+        "youth",
+        "veteran"
+      ]
     },
     "category": {
       "type": "relation",
@@ -33,11 +50,24 @@
       "relation": "manyToOne",
       "target": "api::organizer.organizer"
     },
-    "registrationUrl": { "type": "text" },
-    "flyer": { "type": "media", "multiple": false },
-    "description": { "type": "richtext" },
-    "isOnlineRegistrationOpen": { "type": "boolean", "default": true },
-    "tags": { "type": "component", "repeatable": true, "component": "common.tag" },
-    "publishedAt": { "type": "datetime" }
+    "registrationUrl": {
+      "type": "text"
+    },
+    "flyer": {
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "isOnlineRegistrationOpen": {
+      "type": "boolean",
+      "default": true
+    },
+    "tags": {
+      "type": "component",
+      "component": "common.tag",
+      "repeatable": true
+    }
   }
 }

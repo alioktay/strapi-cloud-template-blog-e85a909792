@@ -42,7 +42,12 @@ module.exports = createCoreController('api::global.global', ({ strapi }) => ({
             }
           }
         },
-        defaultSeo: true
+        defaultSeo: true,
+        sponsors: {
+          populate: {
+            image: true
+          }
+        }
       }
     });
 
