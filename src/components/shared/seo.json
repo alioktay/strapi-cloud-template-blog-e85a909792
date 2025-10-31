@@ -6,7 +6,7 @@
   "attributes": {
     "metaTitle": { "type": "string" },
     "metaDescription": { "type": "text" },
-    "ogImage": { "type": "media", "multiple": false },
+    "shareImage": { "type": "media", "multiple": false },
     "noIndex": { "type": "boolean" }
   }
 }
