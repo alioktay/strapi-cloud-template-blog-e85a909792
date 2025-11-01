@@ -38,8 +38,10 @@ const customRoutes = {
 };
 
 module.exports = {
-  routes: [
-    ...defaultRouter.routes,
-    ...customRoutes.routes,
-  ],
+  get routes() {
+    return [
+      ...defaultRouter.routes,
+      ...customRoutes.routes,
+    ];
+  },
 };

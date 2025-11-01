@@ -151,5 +151,5 @@ module.exports = ({ strapi }) => ({
       ctx.throw(500, `Error fetching statistics: ${error.message}`);
     }
   },
-}));
+});
 

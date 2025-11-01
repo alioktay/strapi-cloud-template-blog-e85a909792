@@ -1,13 +1,10 @@
 module.exports = [
   'strapi::logger',
   'strapi::errors',
-  'global::error-handler',
   'strapi::security',
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
-  'global::request-logging',
-  'global::locale-resolution',
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
