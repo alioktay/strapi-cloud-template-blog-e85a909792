@@ -5,13 +5,27 @@
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const { smartPopulate, optimizePopulate } = require('../../../utils/populate-optimizer');
 
 // Populate relations and media by default for tournament queries
 module.exports = createCoreController('api::tournament.tournament', ({ strapi }) => ({
   async find(ctx) {
-    // Ensure all relations/components/media are populated unless client overrides
+    // Optimize populate based on context and query params
     if (!ctx.query) ctx.query = {};
-    if (!ctx.query.populate) ctx.query.populate = '*';
+    
+    const context = 'list'; // List view
+    const { fields, populate: requestedPopulate } = ctx.query;
+    
+    if (!ctx.query.populate) {
+      // Use smart populate for list view
+      ctx.query.populate = smartPopulate('tournament', context, {
+        depth: 2,
+        exclude: ['blocks', 'description'], // Exclude heavy fields for list view
+      });
+    } else if (requestedPopulate && requestedPopulate !== '*') {
+      // Optimize requested populate
+      ctx.query.populate = optimizePopulate(requestedPopulate, fields?.split(',') || [], 'tournament');
+    }
 
     // Add date range filtering if provided
     const { startDateFrom, startDateTo, endDateFrom, endDateTo, eventType, eventCategory } = ctx.query;
@@ -55,9 +69,21 @@ module.exports = createCoreController('api::tournament.tournament', ({ strapi })
   },
 
   async findOne(ctx) {
-    // Ensure all relations/components/media are populated unless client overrides
+    // Optimize populate for detail view
     if (!ctx.query) ctx.query = {};
-    if (!ctx.query.populate) ctx.query.populate = '*';
+    
+    const context = 'detail'; // Detail view
+    const { fields, populate: requestedPopulate } = ctx.query;
+    
+    if (!ctx.query.populate) {
+      // Use smart populate for detail view (full populate)
+      ctx.query.populate = smartPopulate('tournament', context, {
+        depth: 3, // Allow deeper nesting for detail view
+      });
+    } else if (requestedPopulate && requestedPopulate !== '*') {
+      // Optimize requested populate
+      ctx.query.populate = optimizePopulate(requestedPopulate, fields?.split(',') || [], 'tournament');
+    }
 
     const entity = await super.findOne(ctx);
     return entity;

@@ -76,7 +76,7 @@ This document contains a comprehensive list of prompts and tasks we can work on 
 ## ⚡ Performance Optimization
 
 ### Database & Queries
-- [ ] Optimize populate queries (avoid over-populating)
+- [x] Optimize populate queries (avoid over-populating)
 
 ---
 

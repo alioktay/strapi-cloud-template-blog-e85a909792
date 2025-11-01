@@ -5,6 +5,7 @@
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const { smartPopulate, optimizePopulate } = require('../../../utils/populate-optimizer');
 
 module.exports = createCoreController('api::article.article', ({ strapi }) => ({
   /**
@@ -20,6 +21,14 @@ module.exports = createCoreController('api::article.article', ({ strapi }) => ({
 
     const searchTerm = q.trim();
     
+    // Optimize populate for search results (list context)
+    const optimizedPopulate = populate 
+      ? optimizePopulate(populate, [], 'article')
+      : smartPopulate('article', 'list', {
+          depth: 1, // Shallow populate for search results
+          exclude: ['blocks'], // Exclude heavy blocks for search
+        });
+    
     // Search in title, description, and slug
     const articles = await strapi.entityService.findMany('api::article.article', {
       filters: {
@@ -30,11 +39,7 @@ module.exports = createCoreController('api::article.article', ({ strapi }) => ({
         ],
         publishedAt: { $notNull: true },
       },
-      populate: populate || {
-        author: true,
-        category: true,
-        cover: true,
-      },
+      populate: optimizedPopulate,
       sort: { publishedAt: 'desc' },
     });
 
@@ -48,15 +53,18 @@ module.exports = createCoreController('api::article.article', ({ strapi }) => ({
   async featured(ctx) {
     const { limit = 10, populate } = ctx.query;
     
+    // Optimize populate for featured articles (list context)
+    const optimizedPopulate = populate 
+      ? optimizePopulate(populate, [], 'article')
+      : smartPopulate('article', 'list', {
+          depth: 1,
+        });
+    
     const featuredArticles = await strapi.entityService.findMany('api::article.article', {
       filters: {
         publishedAt: { $notNull: true },
       },
-      populate: populate || {
-        author: true,
-        category: true,
-        cover: true,
-      },
+      populate: optimizedPopulate,
       sort: { publishedAt: 'desc' },
       limit: parseInt(limit, 10),
     });
