@@ -10,18 +10,6 @@
       "type": "string",
       "required": true
     },
-    "url": {
-      "type": "string"
-    },
-    "openInNewTab": {
-      "type": "boolean",
-      "default": false
-    },
-    "page": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
-    },
     "type": {
       "type": "enumeration",
       "required": true,
@@ -30,6 +18,38 @@
         "external",
         "internal"
       ]
+    },
+    "url": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "external"
+          ]
+        }
+      }
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "type"
+            },
+            "internal"
+          ]
+        }
+      }
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

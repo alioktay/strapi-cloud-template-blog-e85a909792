@@ -5,6 +5,7 @@ module.exports = [
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
+  'global::locale-resolution',
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
