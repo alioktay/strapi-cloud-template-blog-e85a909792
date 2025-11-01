@@ -83,11 +83,11 @@ This document contains a comprehensive list of prompts and tasks we can work on 
 ## ✅ Validation & Data Integrity
 
 ### Custom Validations
-- [ ] Add email format validation for Author email field
-- [ ] Create URL validation for Sponsor URLs
-- [ ] Add date range validation (endDate > startDate for Event)
-- [ ] Validate slug uniqueness across locales
-- [ ] Add required field validation rules
+- [x] Add email format validation for Author email field
+- [x] Create URL validation for Sponsor URLs
+- [x] Add date range validation (endDate > startDate for Event)
+- [x] Validate slug uniqueness across locales
+- [x] Add required field validation rules
 
 ---
 
