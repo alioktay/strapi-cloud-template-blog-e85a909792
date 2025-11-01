@@ -51,27 +51,10 @@ This document contains a comprehensive list of prompts and tasks we can work on 
 - [x] Create an endpoint to get upcoming events (all types or filtered by type)
 - [x] Create an endpoint to get upcoming tournaments only (filtered by event type)
 - [x] Create an endpoint to get events by category (competitive, social, training, administrative)
-- [ ] Add endpoint to get player rankings filtered by category (men/women/youth)
-- [ ] Create endpoint to get recent match results with player details
-- [ ] Add endpoint to get league standings/leaderboard
-- [ ] Create endpoint to get upcoming fixtures/scheduled matches
-
-### Custom Services
-- [ ] Add email notification service for new events and match schedules
-- [ ] Add event registration management service (handle sign-ups, waitlists, cancellations)
-- [ ] Create a slug generation service with uniqueness validation
-- [ ] Add image optimization service for uploaded media
-- [ ] Create a content export service (JSON/CSV)
-- [ ] Add analytics tracking service for content views
-- [ ] Create a backup/restore service for content
-- [ ] Add ranking calculation service to update player rankings based on match results
-- [ ] Create match result processing service to update statistics and rankings
-- [ ] Add fixture generation service to create match schedules for leagues
-- [ ] Create event reminder service (email notifications before events)
 
 ### API Response Formatting
-- [ ] Standardize API response format across all endpoints
-- [ ] Add custom error handling and error messages
+- [x] Standardize API response format across all endpoints
+- [x] Add custom error handling and error messages
 
 ---
 
