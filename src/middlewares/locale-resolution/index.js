@@ -1,6 +1,6 @@
 'use strict';
 
-const { resolveLocale, getI18nConfig } = require('../../utils/locale');
+const { resolveLocale, getI18nConfig, detectLocaleFromHeader } = require('../../utils/locale');
 
 module.exports = (config, { strapi }) => {
   return async (ctx, next) => {
@@ -11,7 +11,7 @@ module.exports = (config, { strapi }) => {
     }
 
     const q = ctx.query || {};
-    const requested = q.locale;
+    let requested = q.locale;
 
     // Preserve explicit 'all' behavior
     if (requested === 'all') {
@@ -19,6 +19,15 @@ module.exports = (config, { strapi }) => {
     }
 
     const { locales, defaultLocale } = getI18nConfig(strapi);
+
+    // If no locale in query, try to detect from Accept-Language header
+    if (!requested && config?.detectFromHeader !== false) {
+      const acceptLanguage = ctx.request.headers['accept-language'];
+      if (acceptLanguage) {
+        requested = detectLocaleFromHeader(acceptLanguage, locales, defaultLocale);
+      }
+    }
+
     const resolved = resolveLocale(requested, locales, defaultLocale);
 
     // If we resolved to a configured locale, normalize query
@@ -31,6 +40,10 @@ module.exports = (config, { strapi }) => {
       // decide (some may want to return data: null, others may fallback)
       ctx.state = ctx.state || {};
       ctx.state.locale = null;
+    } else {
+      // No locale requested and not detected, use default
+      ctx.state = ctx.state || {};
+      ctx.state.locale = defaultLocale;
     }
 
     await next();
