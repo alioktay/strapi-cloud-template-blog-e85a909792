@@ -40,17 +40,17 @@ This document contains a comprehensive list of prompts and tasks we can work on 
 ## 🔌 API Customization & Endpoints
 
 ### Custom Controllers
-- [ ] Add search functionality to Article controller (full-text search)
-- [ ] Create a custom endpoint for getting featured articles
-- [ ] Add filtering by date range for Event controller
-- [ ] Add filtering by event type for Event controller (tournament, training, meeting, social, etc.)
-- [ ] Create an endpoint to get related articles based on category/tags
-- [ ] Add pagination helper to Article controller
-- [ ] Create a statistics endpoint that aggregates data (article count, event count, tournament count, active members, upcoming matches, etc.)
-- [ ] Add custom sorting options (popular, recent, alphabetical)
-- [ ] Create an endpoint to get upcoming events (all types or filtered by type)
-- [ ] Create an endpoint to get upcoming tournaments only (filtered by event type)
-- [ ] Create an endpoint to get events by category (competitive, social, training, administrative)
+- [x] Add search functionality to Article controller (full-text search)
+- [x] Create a custom endpoint for getting featured articles
+- [x] Add filtering by date range for Event controller
+- [x] Add filtering by event type for Event controller (tournament, training, meeting, social, etc.)
+- [x] Create an endpoint to get related articles based on category/tags
+- [x] Add pagination helper to Article controller
+- [x] Create a statistics endpoint that aggregates data (article count, event count, tournament count, active members, upcoming matches, etc.)
+- [x] Add custom sorting options (popular, recent, alphabetical)
+- [x] Create an endpoint to get upcoming events (all types or filtered by type)
+- [x] Create an endpoint to get upcoming tournaments only (filtered by event type)
+- [x] Create an endpoint to get events by category (competitive, social, training, administrative)
 - [ ] Add endpoint to get player rankings filtered by category (men/women/youth)
 - [ ] Create endpoint to get recent match results with player details
 - [ ] Add endpoint to get league standings/leaderboard
