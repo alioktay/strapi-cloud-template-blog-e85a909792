@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_schedule_items",
+  "info": {
+    "displayName": "Schedule Item",
+    "icon": "clock",
+    "description": "A single item in an event schedule"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime",
+      "required": false
+    },
+    "location": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "isAllDay": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

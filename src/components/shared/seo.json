@@ -6,6 +6,10 @@
   "attributes": {
     "metaTitle": { "type": "string" },
     "metaDescription": { "type": "text" },
+    "metaKeywords": {
+      "type": "string",
+      "description": "Comma-separated keywords for SEO"
+    },
     "shareImage": { "type": "media", "multiple": false },
     "noIndex": { "type": "boolean" }
   }

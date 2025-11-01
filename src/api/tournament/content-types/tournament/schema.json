@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tournament",
     "pluralName": "tournaments",
-    "displayName": "Tournament"
+    "displayName": "Event",
+    "description": "Events including tournaments, training sessions, meetings, social events, etc."
   },
   "options": {
     "draftAndPublish": true
@@ -24,6 +25,41 @@
     },
     "endDate": {
       "type": "date"
+    },
+    "eventType": {
+      "type": "enumeration",
+      "enum": [
+        "tournament",
+        "training",
+        "meeting",
+        "social",
+        "workshop",
+        "administrative"
+      ],
+      "required": false,
+      "description": "Type of event (tournament, training session, meeting, etc.)"
+    },
+    "eventCategory": {
+      "type": "enumeration",
+      "enum": [
+        "competitive",
+        "social",
+        "training",
+        "administrative"
+      ],
+      "description": "Category/classification of the event"
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false,
+      "description": "Featured events appear prominently"
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "description": "Priority for sorting (higher numbers appear first)"
     },
     "level": {
       "type": "enumeration",
@@ -63,6 +99,62 @@
     "isOnlineRegistrationOpen": {
       "type": "boolean",
       "default": true
+    },
+    "registrationRequired": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether registration is required for this event"
+    },
+    "maxParticipants": {
+      "type": "integer",
+      "min": 0,
+      "description": "Maximum number of participants (0 = unlimited)"
+    },
+    "eventCapacity": {
+      "type": "integer",
+      "min": 0,
+      "description": "Event capacity (0 = unlimited)"
+    },
+    "registrationDeadline": {
+      "type": "datetime",
+      "description": "Deadline for event registration"
+    },
+    "playerCategories": {
+      "type": "enumeration",
+      "enum": [
+        "mens",
+        "womens",
+        "youth",
+        "veteran",
+        "doubles",
+        "mixed"
+      ],
+      "repeatable": true,
+      "description": "Player categories for tournament events"
+    },
+    "matchFormat": {
+      "type": "string",
+      "description": "Match format for tournament events (e.g., 'Best of 5', 'Best of 7')"
+    },
+    "ageCategories": {
+      "type": "string",
+      "description": "Age categories for tournament events (e.g., 'U18', 'U21', 'Senior')"
+    },
+    "skillLevels": {
+      "type": "enumeration",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "professional"
+      ],
+      "repeatable": true,
+      "description": "Skill levels for tournament events"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     },
     "tags": {
       "type": "component",

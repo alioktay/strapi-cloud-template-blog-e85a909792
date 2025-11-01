@@ -1,0 +1,52 @@
+{
+  "collectionName": "components_shared_event_calendars",
+  "info": {
+    "displayName": "Event Calendar",
+    "icon": "calendar",
+    "description": "A calendar component for displaying upcoming events of all types"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Upcoming Events"
+    },
+    "eventTypes": {
+      "type": "enumeration",
+      "enum": ["tournament", "training", "meeting", "social", "workshop", "administrative"],
+      "repeatable": true,
+      "required": false
+    },
+    "maxEvents": {
+      "type": "integer",
+      "required": false,
+      "min": 1,
+      "max": 100,
+      "default": 10
+    },
+    "showPastEvents": {
+      "type": "boolean",
+      "default": false
+    },
+    "dateRangeStart": {
+      "type": "date",
+      "required": false
+    },
+    "dateRangeEnd": {
+      "type": "date",
+      "required": false
+    },
+    "displayFormat": {
+      "type": "enumeration",
+      "enum": ["grid", "list", "compact"],
+      "default": "list"
+    },
+    "categoryFilter": {
+      "type": "enumeration",
+      "enum": ["competitive", "social", "training", "administrative"],
+      "repeatable": true,
+      "required": false
+    }
+  }
+}

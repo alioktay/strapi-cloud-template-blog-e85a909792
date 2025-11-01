@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_shared_event_registrations",
+  "info": {
+    "displayName": "Event Registration",
+    "icon": "user-plus",
+    "description": "Registration component for events requiring sign-up (tournaments, training sessions, meetings, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Register for this Event"
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "registrationDeadline": {
+      "type": "datetime",
+      "required": false
+    },
+    "maxParticipants": {
+      "type": "integer",
+      "required": false,
+      "min": 1
+    },
+    "currentParticipants": {
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "min": 0
+    },
+    "requirePayment": {
+      "type": "boolean",
+      "default": false
+    },
+    "registrationFee": {
+      "type": "decimal",
+      "required": false,
+      "min": 0
+    },
+    "registrationUrl": {
+      "type": "string",
+      "required": false
+    },
+    "registrationEmail": {
+      "type": "email",
+      "required": false
+    },
+    "showWaitlist": {
+      "type": "boolean",
+      "default": false
+    },
+    "customFields": {
+      "type": "json",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["open", "closed", "waitlist", "cancelled"],
+      "default": "open"
+    }
+  }
+}

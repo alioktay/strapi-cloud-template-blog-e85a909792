@@ -18,6 +18,26 @@
     "country": { "type": "string" },
     "description": { "type": "richtext" },
     "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "numberOfTables": {
+      "type": "integer",
+      "min": 0,
+      "description": "Number of table tennis tables available"
+    },
+    "venueType": {
+      "type": "enumeration",
+      "enum": [
+        "club",
+        "hall",
+        "arena",
+        "outdoor",
+        "other"
+      ],
+      "description": "Type of venue"
+    },
+    "accessibility": {
+      "type": "text",
+      "description": "Accessibility information (wheelchair access, parking, etc.)"
+    },
     "tournaments": {
       "type": "relation",
       "relation": "oneToMany",

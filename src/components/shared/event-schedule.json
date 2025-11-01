@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_event_schedules",
+  "info": {
+    "displayName": "Event Schedule",
+    "icon": "calendar-alt",
+    "description": "A schedule component for displaying event dates and times (works for tournaments, training sessions, meetings, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false,
+      "default": "Schedule"
+    },
+    "scheduleItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.schedule-item"
+    },
+    "displayFormat": {
+      "type": "enumeration",
+      "enum": ["list", "timeline", "calendar"],
+      "default": "list"
+    },
+    "showTimes": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLocations": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

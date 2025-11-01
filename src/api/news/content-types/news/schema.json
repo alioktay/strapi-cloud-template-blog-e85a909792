@@ -15,7 +15,11 @@
     "excerpt": { "type": "text" },
     "content": { "type": "dynamiczone", "components": ["shared.rich-text", "shared.media"] },
     "coverImage": { "type": "media", "multiple": false },
-    "author": { "type": "string" },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author"
+    },
     "publishedAt": { "type": "datetime" },
     "relatedTournaments": {
       "type": "relation",

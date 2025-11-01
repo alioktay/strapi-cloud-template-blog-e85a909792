@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_call_to_actions",
+  "info": {
+    "displayName": "Call to Action",
+    "icon": "cursor",
+    "description": "A call-to-action component with button, link, and text for encouraging user engagement"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": false
+    },
+    "buttonText": {
+      "type": "string",
+      "required": false,
+      "default": "Learn More"
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": false
+    },
+    "buttonStyle": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "outline", "ghost"],
+      "default": "primary"
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "default": "center"
+    }
+  }
+}

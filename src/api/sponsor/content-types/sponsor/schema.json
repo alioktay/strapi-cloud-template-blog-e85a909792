@@ -34,6 +34,15 @@
       "type": "integer",
       "default": 0,
       "description": "Display order for sponsors (lower numbers appear first)"
+    },
+    "tier": {
+      "type": "enumeration",
+      "enum": [
+        "gold",
+        "silver",
+        "bronze"
+      ],
+      "description": "Sponsor tier level"
     }
   }
 }
